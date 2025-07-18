@@ -12,7 +12,7 @@ jobs:
   test:
     runs-on: ubuntu-latest #우분투 최신버전 (가상머신)
 
-    stps: 
+    steps: 
     - name: Checkout code
       uses: actions/checkout@v4 # npm install이 가능해짐
       
@@ -25,5 +25,5 @@ jobs:
       run : npm ci
 
     - name : Run tests
-      run: npm test #package.jsoin에서 test스크립트 실행
+      run: npm test #package.json에서 test스크립트 실행
     #Jest동작구간
