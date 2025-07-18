@@ -1,0 +1,29 @@
+
+name: Run test #Github Actions탭에 표시될 이름
+
+
+on: # 언제 실행될지 
+  push:
+    branches: [main] # main 브랜치에 push 될  때 실행됨
+  pull_request:
+
+# 작업 정리
+jobs:
+  test:
+    runs-on: ubuntu-latest #우분투 최신버전 (가상머신)
+
+    stps: 
+    - name: Checkout code
+      uses: actions/checkout@v4 # npm install이 가능해짐
+      
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 10 # npx, npm
+
+    - name : Install dependencies # 패키지 설치(의존성)
+      run : npm ci
+
+    - name : Run tests
+      run: npm test #package.jsoin에서 test스크립트 실행
+    #Jest동작구간
